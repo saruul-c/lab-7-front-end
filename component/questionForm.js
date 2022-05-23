@@ -46,7 +46,8 @@ export default function QuestionForm({ onChange = () => {}, value }) {
       <div className="field">
         <label className="label">Зөв хариу</label>
         <div className="select">
-          <select onChange={(e) => setCorrect(e.target.value)}>
+          <select placeholder="сонгоогүй" onChange={(e) => setCorrect(e.target.value)}>
+            <option value={""}>Сонгоогүй</option>
             {answers
               .filter((item) => item)
               .map((item) => (
