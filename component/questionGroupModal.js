@@ -6,7 +6,7 @@ import axios from "axios";
 export default function QuestionGroupModal({ open, onClose = () => {} }) {
   const [questions, setQuestions] = useState([]);
   const [name, setName] = useState("");
-  const [answers, setAnswers] = useState([]);
+  // const [answers, setAnswers] = useState([]);
   return (
     <ModalConatiner open={open} onClose={onClose}>
       <div className="container">
@@ -43,7 +43,8 @@ export default function QuestionGroupModal({ open, onClose = () => {} }) {
             onClick={() => {
               if (
                 name &&
-                questions.length === questions.filter((item) => item.answers?.length === 4).length &&
+                questions.length ===
+                  questions.filter((item) => item.answers.findIndex((item2) => item2 === item.correct) !== -1 && item.answers?.length === 4).length &&
                 questions.filter((item) => item.answers?.length === 4).length > 0
               ) {
                 axios
@@ -51,7 +52,7 @@ export default function QuestionGroupModal({ open, onClose = () => {} }) {
                   .then((data) => {
                     alert("Амжилттай хадгалагдлаа");
                     console.log(data);
-                    // window.location.reload();
+                    window.location.reload();
                   })
                   .catch((err) => {
                     console.log(err);

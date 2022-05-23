@@ -44,7 +44,7 @@ export default function QuestionForm({ onChange = () => {}, value }) {
       ))}
 
       <div className="field">
-        <label className="label">Зөв хариу </label>
+        <label className="label">Зөв хариу</label>
         <div className="select">
           <select onChange={(e) => setCorrect(e.target.value)}>
             {answers
